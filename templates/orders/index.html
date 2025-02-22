@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Clientes</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/orders.css' %}">
 </head>
 <body>
-    <h1>Lista de clientes</h1>
+    <h1>{{titulo}}</h1>
+    <p>total de orders {{total_orders}}</p>
+    <p>total de pagos{{total_payments}}</p>
     <div class="container">
-        {% for user in users %}
-            <div class="card">
-                <img src="{{ user.photo }}" alt="Foto de {{ user.name }}">
-                <div class="card-content">
-                    <p><strong>{{ user.name }}</strong></p>
-                    <div class="info">
-                        <p><strong>ID:</strong> {{ user.id }}</p>
-                        <p><strong>Age:</strong> {{ user.age }}</p>
-                    </div>
-                </div>
-            </div>
+        {%for item in orders %}
+            <div>ID: {{item.id}} - TOTAL:{{item.total}}</div>
         {% endfor %}
     </div>
+
+    <div class="container">
+        {%for q in question %}
+        <div>
+            {{q.id}} --- {{q.question_text}}
+        </div>
+        {% endfor %}
+
+    </div>
+
+    
+
 </body>
 </html>
