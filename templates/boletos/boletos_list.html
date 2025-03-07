@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Boletos{% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/boletos.css' %}">
+
+<h1>Lista de Boletos</h1>
+<div class="boletos-container">
+    {% if boletos %}
+        {% for boleto in boletos %}
+            <div class="boleto-item">
+                <img src="{{ boleto.photo }}" alt="Imagen del boleto">
+                <p>Boleto {{ boleto.id }}</p>
+                <p>Localidad: {{ boleto.localidad }}</p>
+                <p>Precio: {{ boleto.precio }}</p>
+                <button><a href="">Comprar</a></button>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Sin boletos disponibles</p>
+    {% endif %}
+</div>
+{% endblock %}

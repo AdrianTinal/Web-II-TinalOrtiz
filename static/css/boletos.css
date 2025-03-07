@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.boletos-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.boleto-item {
+    padding: 10px;
+    text-align: center;
+    background-color:white;
+}
+
+.boleto-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.boleto-item button {
+    background-color:black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.boleto-item button a {
+    color: white;
+    text-decoration: none;
+
+
+}
+
+.boleto-item button:hover {
+    background-color: gray;
+}

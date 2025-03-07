@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.agregar-evento-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.agregar-evento-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.agregar-evento-btn:hover {
+    background-color: #45a049;
+}   
+
+.eventos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.evento-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.evento-img {
+    max-width: 25%;
+    height: auto;
+    margin-right: 20px;
+}
+
+.evento-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.evento-info h2 {
+    margin: 0;
+    color: #555;
+    text-align: center;
+}
+
+.evento-info p {
+    margin: 5px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.evento-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.evento-info button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.evento-info button a {
+    color: white;
+    text-decoration: none;
+}
+
+.evento-info button:hover {
+    background-color: #45a049;
+}

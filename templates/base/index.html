@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+
+<div class="grid-container">
+    <!-- Primera fila -->
+    <div class="grid-item"><img src="{% static 'imagenes/index1.jpg' %}" alt="Imagen 1"></div>
+    <div class="grid-item"><img src="{% static 'imagenes/index2.jpg' %}" alt="Imagen 2"></div>
+
+    <!-- Segunda fila -->
+    <div class="grid-item-fila2">
+        <img src="{% static 'imagenes/index4.jpg' %}" alt="Imagen 3">
+        <img src="{% static 'imagenes/index5.jpg' %}" alt="Imagen 4">
+    </div>
+    <div class="grid-item"><img src="{% static 'imagenes/index3.jpg' %}" alt="Imagen 5"></div>
+</div>
+
+<h1>Noticias</h1>
+
+<div class="grid-container">
+    <!-- Tercera fila -->
+    <div class="grid-item-noticias">
+        <img src="{% static 'imagenes/noticia1.jpg' %}" alt="Imagen 6">
+        <h2>Noticia</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam voluptate eum laborum delectus ipsa a sapiente at quasi beatae consequatur eligendi iste mollitia nam, itaque recusandae, placeat voluptates debitis. Tenetur.</p>
+        <img src="{% static 'imagenes/noticia1.jpg' %}" alt="Imagen 7">
+        <h2>Noticia</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam voluptate eum laborum delectus ipsa a sapiente at quasi beatae consequatur eligendi iste mollitia nam, itaque recusandae, placeat voluptates debitis. Tenetur.</p>
+    </div>
+    <div class="grid-item">
+        {% for evento in eventos %}
+            <div class="evento-item">
+                <h2>{{ evento.name }}</h2>
+                <p>{{ evento.descripcion }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+static/imagenes/index1.jpg

@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Eventos{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/eventos.css' %}">
+<h1>Lista de Eventos</h1>
+<div class="agregar-evento-container">
+    <a href="{% url 'agregar_evento' %}">
+        <button class="agregar-evento-btn">Agregar evento</button>
+    </a>
+</div>
+<div class="eventos-container">
+    {% for evento in eventos %}
+        <div class="evento-item">
+            <img src="{{ evento.photo }}" alt="Imagen del evento" class="evento-img">
+            <div class="evento-info">
+                <h2>{{ evento.name }}</h2>
+                <p>Localidad: {{ evento.localidad.name }}</p>
+                <p>Descripción: {{ evento.descripcion }}</p>
+                <div class="evento-button">
+                    <a href="{% url 'boletos_por_evento' evento.id %}">
+                        <button>Boletos</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    {% include 'base/header.html' %}
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    {% include 'base/footer.html' %}
+</body>
+</html>

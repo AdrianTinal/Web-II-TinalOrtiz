@@ -1,0 +1,74 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Agregar Evento{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/agregar_evento.css' %}">
+<h1>Agregar Evento</h1>
+<form id="agregar-evento-form">
+    <div class="form-group">
+        <label for="name">Nombre del Evento:</label>
+        <input type="text" id="name" name="name" placeholder="Nombre del evento" required>
+    </div>
+
+
+    <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion" placeholder="Ingrese la descripción del evento" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="photo">URL de la Imagen:</label>
+        <input type="url" id="photo" name="photo" placeholder="Ingrese la URL de la imagen" required>
+    </div>
+
+    <div class="form-group">
+        <label for="fecha_inicio">Fecha de Inicio:</label>
+        <input type="datetime-local" id="fecha_inicio" name="fecha_inicio" required>
+    </div>
+
+    <div class="form-group">
+        <label for="fecha_fin">Fecha de Fin:</label>
+        <input type="datetime-local" id="fecha_fin" name="fecha_fin" required>
+    </div>
+
+    <div class="form-group">
+        <label for="localidad">Localidad:</label>
+        <select id="localidad" name="localidad" required>
+            <option value="" disabled selected>Seleccione la localidad</option>
+            {% for localidad in localidades %}
+                <option value="{{ localidad.id }}">{{ localidad.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Agregar</button>
+</form>
+<div id="mensaje"></div>
+
+<h2>Eventos Recientemente Agregados</h2>
+<table id="eventos-recientes" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+            <th>Localidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for evento in eventos_recientes %}
+        <tr id="evento-{{ evento.id }}">
+            <td>{{ evento.name }}</td>
+            <td>{{ evento.fecha_inicio }}</td>
+            <td>{{ evento.fecha_fin }}</td>
+            <td>{{ evento.localidad.name }}</td>
+            <td><button onclick="eliminarEvento('{{ evento.id }}')">Eliminar</button></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script src="{% static 'js/eventos.js' %}"></script>
+{% endblock %}

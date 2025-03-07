@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Productos{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/productos.css' %}">
+<h1>productos</h1>
+<a href="{% url 'agregar_productos' %}">
+    <button>Agregar producto</button>
+</a>
+{% endblock %}
